@@ -11,9 +11,10 @@
   "license": "MIT",
   "scripts": {
     "loc": "node jsloc.js",
-    "build-major": "npm version major",
-    "build-minor": "npm version minor",
-    "build-patch": "npm version patch"
+    "build": "cp ./jsloc.js ./bin/",
+    "version-major": "npm version major",
+    "version-minor": "npm version minor",
+    "version-patch": "npm version patch"
   },
   "files": [
     "bin",

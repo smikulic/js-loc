@@ -1,14 +1,26 @@
 #!/usr/bin/env node
 var fs = require("fs");
-console.log("Start counting the lines...");
+var path = require("path");
+var normalizedPath = path.join(__dirname, "/");
 
+// Stats
 var totalLines = 0;
 var totalVariables = 0;
-fs.createReadStream("test.js").on("data", function(data) {
-  var dataToString = data.toString();
-  totalVariables = dataToString.match(/var /g).length;
-  totalLines = dataToString.split('\n').length;
-}).on("end", function() {
-  console.log("Total number of lines in a file: ", totalLines);
-  console.log("Total number of variables in a file: ", totalVariables);
+
+console.log("Start counting the lines...");
+
+fs.readdirSync(normalizedPath).forEach(function(file) {
+
+  // Match only javascript files
+  if (file.match(/\.js$/)) {
+    var fileContent = fs.readFileSync(file).toString();
+    // Match variables
+    totalVariables += fileContent.match(/var /g) ?
+      fileContent.match(/var /g).length : 0;
+    // Match end of line
+    totalLines += fileContent.split('\n').length;
+  }
 });
+
+console.log("Total number of lines: ", totalLines);
+console.log("Total number of variables: ", totalVariables);
