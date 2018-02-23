@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 var fs = require("fs");
 var path = require("path");
-var normalizedPath = path.join(__dirname, "/");
+var normalizedPath = path.join(process.cwd(), "/");
 
 // Stats
 var totalLines = 0;
