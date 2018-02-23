@@ -1,0 +1,11 @@
+{
+  "name": "check-loc",
+  "version": "1.0.0",
+  "description": "Check lines of code",
+  "main": "index.js",
+  "author": "Sinisa Mikulic",
+  "license": "MIT",
+  "scripts": {
+    "loc": "node index.js"
+  }
+}
