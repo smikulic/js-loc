@@ -1,11 +1,14 @@
 {
   "name": "js-loc",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Check for lines of code and other stats for a js project",
   "main": "index.js",
   "author": "Sinisa Mikulic",
   "license": "MIT",
   "scripts": {
     "loc": "node index.js"
-  }
+  },
+  "bin": {
+    "loc": "./index.js"
+  },
 }
