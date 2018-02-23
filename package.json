@@ -1,7 +1,7 @@
 {
-  "name": "check-loc",
-  "version": "1.0.0",
-  "description": "Check lines of code",
+  "name": "js-loc",
+  "version": "0.1.0",
+  "description": "Check for lines of code and other stats for a js project",
   "main": "index.js",
   "author": "Sinisa Mikulic",
   "license": "MIT",
