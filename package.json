@@ -6,17 +6,21 @@
   "bin": {
     "jsloc": "./bin/jsloc.js"
   },
-  "main": "index.js",
+  "main": "jsloc.js",
   "author": "Sinisa Mikulic",
   "license": "MIT",
   "scripts": {
-    "loc": "node index.js"
+    "loc": "node jsloc.js",
+    "build-major": "npm version major",
+    "build-minor": "npm version minor",
+    "build-patch": "npm version patch"
   },
   "files": [
     "bin",
+    "package.json",
     "README.md",
     "test.js",
-    "index.js"
+    "jsloc.js"
   ],
   "keywords": [
     "javascript",
