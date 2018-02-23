@@ -1,7 +1,8 @@
 {
   "name": "js-loc",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Check for lines of code and other stats for a js project",
+  "repository": "smikulic/js-loc",
   "bin": {
     "jsloc": "./bin/jsloc.js"
   },
@@ -10,5 +11,18 @@
   "license": "MIT",
   "scripts": {
     "loc": "node index.js"
+  },
+  "files": [
+    "bin",
+    "README.md",
+    "test.js",
+    "index.js"
+  ],
+  "keywords": [
+    "javascript",
+    "loc"
+  ],
+  "engines": {
+    "node": ">=4"
   }
 }

@@ -1,2 +1,21 @@
-# js-loc
-Check for lines of code and other stats for a js project
+# Install
+`npm install js-loc --save-dev`
+or
+`yarn add js-loc --dev`
+
+# Usage
+To check all your folder structure files
+run `./node_modules/.bin/jsloc` in your terminal
+or add `./node_modules/.bin/jsloc` as a script in your project's `package.json` file.
+
+### like this:
+```javascript
+"scripts": {
+  "jsloc": "./node_modules/.bin/jsloc"
+}
+```
+
+and then run in your terminal:
+`npm run jsloc`
+or
+`yarn jsloc`
