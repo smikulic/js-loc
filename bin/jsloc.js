@@ -20,8 +20,8 @@ rl.write('Counting.');
 const walkSync = (dir, filelist = []) => {
   fs.readdirSync(dir).forEach(file => {
     
-    // TODO: add blacklisting instead just git folder
-    if (file !== '.git') {
+    // TODO: add blacklisting
+    if (file !== '.git' && file !== 'node_modules') {
       filelist = fs.statSync(path.join(dir, file)).isDirectory()
         ? walkSync(path.join(dir, file), filelist)
         : filelist.concat(path.join(dir, file));  
