@@ -1,6 +1,9 @@
 # Description
 Simple LOC stats for JS oriented projects.
 
+![alt tag](http://res.cloudinary.com/djgh6tvhv/image/upload/q_60/v1521932645/js-loc-screenshot_hit44a.jpg)
+
+
 # Install
 `npm install js-loc --save-dev`
 
@@ -28,7 +31,7 @@ or
 `yarn jsloc`
 
 
-## #Current state
+### Current state
 - all nested files and folders
 - `.js|.jsx|.ts|.tsx` files
 - displays lines of code count and different js content stats
