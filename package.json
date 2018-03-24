@@ -1,6 +1,6 @@
 {
   "name": "js-loc",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Check for lines of code and other stats for a js project",
   "repository": "smikulic/js-loc",
   "bin": {
@@ -25,7 +25,12 @@
   ],
   "keywords": [
     "javascript",
-    "loc"
+    "loc",
+    "count loc",
+    "lines of code",
+    "count lines of code",
+    "count javascript lines of code",
+    "javascript code stats"
   ],
   "engines": {
     "node": ">=4"

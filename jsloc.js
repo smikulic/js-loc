@@ -99,7 +99,10 @@ allFiles.forEach(function(file) {
   }
 
   totalLines = totalJavaScriptLines + totalOtherLines;
+  totalLines = 1024;
 });
+
+console.log(totalLines.toString().length)
 
 rl.write("\n\nStats");
 rl.write("\n_____________________________________________");

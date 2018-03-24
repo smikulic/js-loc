@@ -36,5 +36,6 @@ or
 ### Coming soon
 - add more stats to display (feedback welcome)
 - support React (Component stats, redux|mobx|vue)
+- support for custom specific folders
 - support CSS
 - add tests
