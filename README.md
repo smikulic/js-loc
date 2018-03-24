@@ -30,10 +30,11 @@ or
 
 ## #Current state
 - all nested files and folders
-- only `.js` files
-- displays only lines of code and variable count values
+- `.js|.jsx|.ts|.tsx` files
+- displays lines of code count and different js content stats
 
 ### Coming soon
 - add more stats to display (feedback welcome)
-- support React and Typescript (check `.jsx|.tsx|.ts` files)
+- support React (Component stats, redux|mobx|vue)
+- support CSS
 - add tests
