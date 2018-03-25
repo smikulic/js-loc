@@ -1,7 +1,7 @@
 # Description
 Simple LOC stats for JS oriented projects.
 
-![alt tag](http://res.cloudinary.com/djgh6tvhv/image/upload/c_scale,w_450/v1521933700/jsloc-screenshot_sffgw8.jpg)
+![alt tag](http://res.cloudinary.com/djgh6tvhv/image/upload/c_scale,h_401/v1522017851/screenshot-jsloc_dojizy.jpg)
 
 
 # Install

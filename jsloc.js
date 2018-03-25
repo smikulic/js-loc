@@ -23,7 +23,9 @@ let totalIfs = 0;
 let totalFunctions = 0;
 let totalComments = 0;
 
+let allFilesCount = 0;
 let allJavaScriptFilesCount = 0;
+let allOtherFilesCount = 0;
 let jsFilesCount = 0;
 let jsxFilesCount = 0;
 let tsFilesCount = 0;
@@ -52,18 +54,23 @@ allFiles = walkSync(normalizedPath);
 
 // Loop through all valid files to get the count
 allFiles.forEach(function(file) {
+  allFilesCount++;
+  
   let matchAllJavaScriptFiles = file.match(/\.js$|\.jsx$|\.ts$|\.tsx$/);
   let matchJsFiles = file.match(/\.js$/);
   let matchJsxFiles = file.match(/\.jsx$/);
   let matchTsFiles = file.match(/\.ts$/);
   let matchTsxFiles = file.match(/\.tsx$/);
+
+  let fileContent = fs.readFileSync(file).toString();
+  // Display progress while going through files
+  rl.write('.');
+
+  totalLines += fileContent.split('\n').length;
   
   // Match javascript files
   if (matchAllJavaScriptFiles) {
     allJavaScriptFilesCount++;
-    let fileContent = fs.readFileSync(file).toString();
-    // Display progress while going through files
-    rl.write('.');
 
     let matchVars = fileContent.match(/var /g);
     let matchLets = fileContent.match(/let /g);
@@ -88,43 +95,31 @@ allFiles.forEach(function(file) {
     
       // Match end of line
     totalJavaScriptLines += fileContent.split('\n').length;
-  // Match other files
-  } else {
-    let fileContent = fs.readFileSync(file).toString();
-    // Display progress while going through files
-    rl.write('.');
-    
-    // Match end of line
-    totalOtherLines += fileContent.split('\n').length;
-  }
-
-  totalLines = totalJavaScriptLines + totalOtherLines;
-  totalLines = 1024;
+  }  
 });
 
-console.log(totalLines.toString().length)
+totalOtherLines = totalLines - totalJavaScriptLines;
+allOtherFilesCount = allFilesCount - allJavaScriptFilesCount;
 
-rl.write("\n\nStats");
-rl.write("\n_____________________________________________");
-rl.write(`\nLOC                               `);
-rl.write(`\nTotal LOC:                        | ${totalLines}`);
-rl.write(`\njavaScript LOC:                   | ${totalJavaScriptLines}`);
-rl.write(`\nOther LOC:                        | ${totalOtherLines}`);
-rl.write("\n");
-rl.write(`\nFiles count                       `);
-rl.write(`\nTotal javaScript files:           | ${allJavaScriptFilesCount}`);
-rl.write(`\n.js:                              | ${jsFilesCount}`);
-rl.write(`\n.jsx:                             | ${jsxFilesCount}`);
-rl.write(`\n.ts:                              | ${tsFilesCount}`);
-rl.write(`\n.tsx:                             | ${tsxFilesCount}`);
-rl.write("\n");
-rl.write(`\nContent                           `);
-rl.write(`\nvariables:                        | ${totalVariables}`);
-rl.write(`\nlets:                             | ${totalLets}`);
-rl.write(`\nconsts:                           | ${totalConsts}`);
-rl.write(`\nif statements:                    | ${totalIfs}`);
-rl.write(`\nfunctions:                        | ${totalFunctions}`);
-rl.write(`\ncomments:                         | ${totalComments}`);
-rl.write("\n_____________________________________________");
+let totalJsLinesPercentage = `(${Math.round(totalJavaScriptLines/totalLines * 100)}%)`;
+let totalOtherLinesPercentage = `(${Math.round(totalOtherLines/totalLines * 100)}%)`;
+let totalJsFilesPercentage = `(${Math.round(allJavaScriptFilesCount/allFilesCount * 100)}%)`;
+let totalOtherFilesPercentage = `(${Math.round(allOtherFilesCount/allFilesCount * 100)}%)`;
+
+rl.write("\n\n   Stats");
+rl.write("\n________________________________________________________________");
+rl.write(`\n   LOC                                                          `);
+rl.write(`\n   Total: ${totalLines}   |   JavaScript: ${totalJavaScriptLines} ${totalJsLinesPercentage}   |   Other: ${totalOtherLines} ${totalOtherLinesPercentage}   `);
+rl.write("\n________________________________________________________________");
+rl.write(`\n   FILES                                                        `);
+rl.write(`\n   Total: ${allFilesCount}   |   JavaScript: ${allJavaScriptFilesCount} ${totalJsFilesPercentage}   |   Other: ${allOtherFilesCount} ${totalOtherFilesPercentage}   `);
+rl.write(`\n                                                                `);
+rl.write(`\n   JAVASCRIPT FILES                                             `);
+rl.write(`\n   js: ${jsFilesCount}   |   jsx: ${jsxFilesCount}   |   ts: ${tsFilesCount}   |   tsx: ${tsxFilesCount}   `);
+rl.write("\n________________________________________________________________");
+rl.write(`\n   CONTENT                                                      `);
+rl.write(`\n   vars: ${totalVariables}   |   lets: ${totalLets}   |   consts: ${totalConsts}   | if statements: ${totalIfs}`);
+rl.write(`\n   functions: ${totalFunctions}   | comments:  ${totalComments}`);
+rl.write("\n________________________________________________________________");
 rl.write("\n");
 rl.close();
