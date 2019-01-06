@@ -123,3 +123,23 @@ rl.write(`\n   functions: ${totalFunctions}   | comments:  ${totalComments}`);
 rl.write("\n________________________________________________________________");
 rl.write("\n");
 rl.close();
+
+module.exports = {
+  allFiles,
+  totalLines,
+  totalJavaScriptLines,
+  totalOtherLines,
+  totalVariables,
+  totalLets,
+  totalConsts,
+  totalIfs,
+  totalFunctions,
+  totalComments,
+  allFilesCount,
+  allJavaScriptFilesCount,
+  allOtherFilesCount,
+  jsFilesCount,
+  jsxFilesCount,
+  tsFilesCount,
+  tsxFilesCount
+}
